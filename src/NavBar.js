@@ -4,27 +4,19 @@ import logo from './logo.svg';
 
 function NavBar(props) {
 
-    console.log( props.path )
-
-    const initialState = {
-        'home': '',
-        'register': ''
-    }
-    const [state, setState] = useState(initialState)
-
+    const [state, setState] = useState({})
 
     useEffect(
         function() {
-
-            if(props.path === '/') {
-                setState(
-                    {...initialState, 'home': 'active'}
-                )
-            } else  if(props.path === '/register') {
-                setState(
-                    {...initialState, 'register': 'active'}
-                )
-            }
+            setState(
+                {
+                    // Use spread syntax to copy a new blank object
+                    ...{}, 
+                    // Overwrite with new key-value pair, where the key 
+                    // is the current path
+                    [props.path]: 'active'
+                }
+            )
         },
         [props.path]
     )
@@ -41,10 +33,16 @@ function NavBar(props) {
 
             <ul className="nav nav-pills">
                 <li className="nav-item">
-                    <Link to="/" className={`nav-link ${state['home']}`}>Home</Link>
+                    <Link to="/" className={`nav-link ${state['/']}`}>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/register" className={`nav-link ${state['register']}`}>Register</Link>
+                    <Link to="/register" className={`nav-link ${state['/register']}`}>Register</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/about" className={`nav-link ${state['/about']}`}>About</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/contact" className={`nav-link ${state['/contact']}`}>Contact</Link>
                 </li>
             </ul>
             </header>
