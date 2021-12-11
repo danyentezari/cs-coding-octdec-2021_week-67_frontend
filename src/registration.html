@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>JavaScript</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <div class="container" style="margin-top: 5em; max-width: 40em;">
+            
+            <h1>Register your Interest</h1>
+            <br/>
+
+            <label>Enter your firstname *</label>
+            <input class="field form-control" name="firstName" type="text" />
+
+            <label>Enter your lastname *</label>
+            <input class="field form-control" name="lastName" type="text" />
+
+            <label>Enter your email *</label>
+            <input class="field form-control" name="email" type="text" />
+
+            <label>Enter a password *</label>
+            <input class="field form-control" name="password" autocomplete="off" type="password" />
+
+            <label>Enter your phone (optional)</label>
+            <input class="field form-control" name="phone" type="text" />
+
+            <br/><br/>
+
+            <label>Upload your profile picture</label>
+            <input class="field form-control" id="photo" name="file" type="file" multiple="multiple"/>
+
+            <br/><br/>
+
+            <label>Do you agree to terms &amp; conditions? *</label>
+            <input class="checkbox" name="termsConditions" type="checkbox" /> Yes
+
+            <br/><br/>
+
+            <div style="display: none" 
+            class="alert alert-danger user-errors">
+            </div>
+
+            <div style="display: none" 
+            class="alert alert-success user-success">
+            You have registered successfully!
+            </div>
+
+            <br/>
+
+            <button 
+            class="btn btn-primary"
+            onClick="registerUser()"
+            style="padding: 10px; font-size: 16px;">
+                Register
+            </button>
+
+        </div>
+
+        <script type="text/JavaScript" src="./registration.js"></script>
+    </body>
+</html>
