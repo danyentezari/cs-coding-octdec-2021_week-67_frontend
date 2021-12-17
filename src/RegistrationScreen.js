@@ -28,6 +28,7 @@ function RegistrationScreen() {
         // For each attachment, append the file to formData
         files.forEach(
             (fileAttachment, index) => {
+                console.log('hre')
                 formData.append(index, fileAttachment);
             }
         );
@@ -156,6 +157,9 @@ function RegistrationScreen() {
             <label>Upload your profile picture</label>
             <input ref={(element)=>{ avatarInput = element}} 
             onChange={attachFile}
+            onClick={(evt)=> { 
+                evt.target.value = null
+            }}
             className="field form-control" id="photo" name="file" 
             type="file" multiple="multiple"/>
 

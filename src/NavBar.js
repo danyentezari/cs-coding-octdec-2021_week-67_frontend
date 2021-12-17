@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from './UserContext';
 import logo from './logo.svg';
 
 function NavBar(props) {
 
     const [state, setState] = useState({})
+    const { loggedIn } = useContext(UserContext)
+
+    console.log('loggedIn', loggedIn)
 
     useEffect(
         function() {
@@ -36,14 +40,29 @@ function NavBar(props) {
                     <Link to="/" className={`nav-link ${state['/']}`}>Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/register" className={`nav-link ${state['/register']}`}>Register</Link>
-                </li>
-                <li className="nav-item">
                     <Link to="/about" className={`nav-link ${state['/about']}`}>About</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/contact" className={`nav-link ${state['/contact']}`}>Contact</Link>
                 </li>
+                { 
+                    loggedIn === false &&
+                    <li className="nav-item">
+                        <Link to="/register" className={`nav-link ${state['/register']}`}>Register</Link>
+                    </li>
+                }
+                { 
+                    loggedIn === false &&
+                    <li className="nav-item">
+                        <Link to="/login" className={`nav-link ${state['/login']}`}>Login</Link>
+                    </li>
+                }
+                { 
+                    loggedIn === true &&
+                    <li className="nav-item">
+                        <Link to="/profile" className={`nav-link ${state['/profile']}`}>Profile</Link>
+                    </li>
+                }
             </ul>
             </header>
         </div>
