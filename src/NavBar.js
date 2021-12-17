@@ -57,12 +57,9 @@ function NavBar(props) {
                         <Link to="/login" className={`nav-link ${state['/login']}`}>Login</Link>
                     </li>
                 }
-                { 
-                    loggedIn === true &&
-                    <li className="nav-item">
-                        <Link to="/profile" className={`nav-link ${state['/profile']}`}>Profile</Link>
-                    </li>
-                }
+                <li className="nav-item">
+                    <Link to="/profile" className={`nav-link ${state['/profile']}`}>Profile</Link>
+                </li>
             </ul>
             </header>
         </div>
